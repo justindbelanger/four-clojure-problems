@@ -16,3 +16,19 @@
          (map (partial apply
                        *) (make-tuples (list u
                                              v)))))
+
+(def solution (fn [u v]
+                (let [group-by-index (fn group [colls]
+                                    (let [tuple (list (map first
+                                                           colls))
+                                          rest-colls (map rest
+                                                          colls)]
+                                      (if (not (not-any? empty?
+                                                         rest-colls))
+                                        tuple
+                                        (lazy-cat tuple
+                                                  (group rest-colls)))))]
+                  (apply +
+                         (map (partial apply
+                                       *) (group-by-index (list u
+                                                             v)))))))

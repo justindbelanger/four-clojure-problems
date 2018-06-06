@@ -1,0 +1,9 @@
+(map first [[1 2] [3 4]])
+(map first [[1 2] [3 4] [])
+(map first [[1])
+(map first [[] [1 2]])
+dot
+(make-tuples [[1 2] [3 4]])
+(seq [1 2 3])
+(sequence [1 2 3])
+exit

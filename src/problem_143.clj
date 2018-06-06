@@ -1,34 +1,37 @@
+(def any-in-coll? (complement not-any?))
+
 ;; we're actually grouping by index.
 ;; the equivalent for a hash-map would be to group by key.
-(defn make-tuples [colls]
+(defn group-by-index [colls]
   (let [tuple (list (map first
                          colls))
         rest-colls (map rest
                         colls)]
-    (if (not (not-any? empty?
-                       rest-colls))
+    (if (any-in-coll? empty?
+                      rest-colls)
       tuple
       (lazy-cat tuple
-                (make-tuples rest-colls)))))
+                (group-by-index rest-colls)))))
 
 (defn dot [u v]
   (apply +
          (map (partial apply
-                       *) (make-tuples (list u
+                       *) (group-by-index (list u
                                              v)))))
 
 (def solution (fn [u v]
-                (let [group-by-index (fn group [colls]
-                                    (let [tuple (list (map first
-                                                           colls))
-                                          rest-colls (map rest
-                                                          colls)]
-                                      (if (not (not-any? empty?
-                                                         rest-colls))
-                                        tuple
-                                        (lazy-cat tuple
-                                                  (group rest-colls)))))]
+                (let [any-in-coll? (complement not-any?)
+                      group-by-index (fn group [colls]
+                                       (let [tuple (list (map first
+                                                              colls))
+                                             rest-colls (map rest
+                                                             colls)]
+                                         (if (any-in-coll? empty?
+                                                           rest-colls)
+                                           tuple
+                                           (lazy-cat tuple
+                                                     (group rest-colls)))))]
                   (apply +
                          (map (partial apply
                                        *) (group-by-index (list u
-                                                             v)))))))
+                                                                v)))))))

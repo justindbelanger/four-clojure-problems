@@ -1,7 +1,5 @@
 (def any-in-coll? (complement not-any?))
 
-;; we're actually grouping by index.
-;; the equivalent for a hash-map would be to group by key.
 (defn group-by-index [colls]
   (let [tuple (list (map first
                          colls))

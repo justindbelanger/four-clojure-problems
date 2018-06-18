@@ -1,3 +1,5 @@
+(ns four-clojure-problems.solutions.122)
+
 (def binary-to-decimal
   "Accepts a string representing a binary number. Evaluates to its decimal representation."
   (fn [binary]

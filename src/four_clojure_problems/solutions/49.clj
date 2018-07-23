@@ -9,8 +9,8 @@
                        (recur (inc i) t* u*))))))
 
 (def examples [{:input [3 [1 2 3 4 5 6]]
-                :output [[1 2 3] [4 5 6]]}
+                :result [[1 2 3] [4 5 6]]}
                {:input [1 [:a :b :c :d]]
-                :output [[:a] [:b :c :d]]}
+                :result [[:a] [:b :c :d]]}
                {:input [2 [[1 2] [3 4] [5 6]]]
-                :output [[[1 2] [3 4]] [[5 6]]]}])
+                :result [[[1 2] [3 4]] [[5 6]]]}])

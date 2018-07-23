@@ -1,11 +1,11 @@
 (ns four-clojure-problems.solutions.31)
 
-(def tests [{:value [1 1 2 1 1 1 3 3]
-             :result '((1 1) (2) (1 1 1) (3 3))}
-            {:value [:a :a :b :b :c]
-             :result '((:a :a) (:b :b) (:c))}
-            {:value [[1 2] [1 2] [3 4]]
-             :result '(([1 2] [1 2]) ([3 4]))}])
+(def examples [{:input [1 1 2 1 1 1 3 3]
+                :result '((1 1) (2) (1 1 1) (3 3))}
+               {:input [:a :a :b :b :c]
+                :result '((:a :a) (:b :b) (:c))}
+               {:input [[1 2] [1 2] [3 4]]
+                :result '(([1 2] [1 2]) ([3 4]))}])
 
 (defn test-31 [f {:keys [value result]}]
   (= (f value)

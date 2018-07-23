@@ -1,3 +1,5 @@
+(ns four-clojure-problems.solutions.166)
+
 (fn [keys values]
   (let [resultMap {}]
     (loop [[theKeys theValues theMap] [keys values resultMap]]

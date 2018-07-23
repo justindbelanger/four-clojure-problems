@@ -1,3 +1,5 @@
+(ns four-clojure-problems.solutions.27)
+
 ;(fn [seq]
 ;  (loop [theSeq seq] 
 ;    (if (or (empty? theSeq) (= 1 (count theSeq))) 
@@ -6,6 +8,7 @@
 ;    )
 ;  )
 ;)
+
 (fn [mySeq]
   (if (or (not (seq? mySeq)) (empty? mySeq)) true
     (if (not (= (first mySeq) (last mySeq))) false 

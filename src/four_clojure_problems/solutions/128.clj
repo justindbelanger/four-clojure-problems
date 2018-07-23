@@ -23,8 +23,4 @@
                                 {:suit (get suits suit)
                                  :rank (get ranks rank)})))
 
-(def tests [{:input "DQ" :result {:suit :diamond :rank 10}}])
-
-(defn test-fn []
-  (= (recognize-playing-card (get-in tests [0 :input]))
-     (get-in tests [0 :result])))
+(def examples [{:input "DQ" :result {:suit :diamond :rank 10}}])

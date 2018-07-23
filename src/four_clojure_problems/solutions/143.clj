@@ -1,3 +1,5 @@
+(ns four-clojure-problems.solutions.143)
+
 (def any-in-coll? (complement not-any?))
 
 (defn group-by-index [colls]

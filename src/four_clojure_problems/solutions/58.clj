@@ -1,3 +1,5 @@
+(ns four-clojure-problems.solutions.58)
+
 (fn [& fns]
   (let [fns-rtl (reverse fns)]
     (fn [& args]

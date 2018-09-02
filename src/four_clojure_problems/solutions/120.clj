@@ -1,5 +1,8 @@
 (ns four-clojure-problems.solutions.120)
 
+(def separate-digits-alt (fn [i]
+                           (map #(int (bigdec (str %))) (seq (str i)))))
+
 (def separate-digits (fn [i]
                        {:pre [(>= i 0)]}
                        (loop [i* i

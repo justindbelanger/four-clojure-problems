@@ -1,11 +1,12 @@
 (ns four-clojure-problems.solutions.33)
 
 (def replicate-seq (fn [ss n]
-                     (->> ss
-                          (map (fn [s] (repeat n s)))
-                          (apply concat))))
+                     (mapcat (fn [s]
+                               (repeat n
+                                       s))
+                             ss)))
 
-(def examples [{:input [[1 2 3] 2]
-                :results '(1 1 2 2 3 3)}
-               {:input [[:a :b] 4]
-                :results '(:a :a :a :a :b :b :b :b)}])
+(def tests [{:input [[1 2 3] 2]
+             :result '(1 1 2 2 3 3)}
+            {:input [[:a :b] 4]
+             :result '(:a :a :a :a :b :b :b :b)}])

@@ -1,7 +1,8 @@
-(ns four-clojure-problems.solutions)
+(ns four-clojure-problems.solutions
+  (:refer-clojure :exclude [test]))
 
 (defn test
   [f {:keys [input result]}]
-  (= (apply f
-            input)
-     result))
+  (-> f
+      (apply input)
+      (= result)))

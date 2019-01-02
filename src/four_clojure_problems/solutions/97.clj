@@ -1,22 +1,9 @@
 (ns four-clojure-problems.solutions.97
-  (:require [clojure.test :refer [deftest is]]))
-
-(def sum-as-pairs (fn sum-fn [[i & others]]
-                    (let [j (first others)]
-                      (if (and i j)
-                        (let [summed (+' i j)
-                              more (if others
-                                     (lazy-seq (sum-fn others))
-                                     '())]
-                          (cons summed more))
-                        '()))))
+  (:require [clojure.test :refer [deftest is]]
+            [four-clojure-problems.solutions.147 :as drug]))
 
 (def pascal-triangle (fn pt [n]
-                       (if (= 1 n)
-                         '(1)
-                         (concat [1]
-                                 (sum-as-pairs (pt (- n 1)))
-                                 [1]))))
+                       (nth (drug/pascal-trapezoid [1]) (dec n))))
 
 (def solution (fn pt [n]
                 (let [sum-fn (fn sum-fn [[i & others]]

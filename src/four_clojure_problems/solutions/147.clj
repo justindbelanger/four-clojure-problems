@@ -1,11 +1,20 @@
 (ns four-clojure-problems.solutions.147
-  (:require [clojure.test :refer [deftest is]]
-            [four-clojure-problems.solutions.97 :as bug]))
+  (:require [clojure.test :refer [deftest is]]))
+
+(def sum-as-pairs (fn sum-fn [[i & others]]
+                    (let [j (first others)]
+                      (if (and i j)
+                        (let [summed (+' i j)
+                              more (if others
+                                     (lazy-seq (sum-fn others))
+                                     '())]
+                          (cons summed more))
+                        '()))))
 
 (defn pascal-trapezoid [row]
   (iterate (fn [current]
              (vec (concat (list (first current))
-                          (bug/sum-as-pairs current)
+                          (sum-as-pairs current)
                           (list (last current)))))
            row))
 

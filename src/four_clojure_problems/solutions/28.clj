@@ -2,13 +2,12 @@
   (:require [clojure.test :refer [deftest is]]))
 
 (def pancake (fn pancake-fn [ss]
-               (if (empty? ss)
-                 ss
-                 (let [s (first ss)
-                       pancaked (if (or (string? s) (not (sequential? s)))
-                                  (list s)
-                                  (pancake-fn s))]
-                   (concat pancaked (lazy-seq (pancake-fn (rest ss))))))))
+               (if (and (sequential? ss) (not (string? ss)))
+                 (lazy-seq (reduce (fn [pancaked s]
+                                     (concat pancaked (pancake-fn s)))
+                                   (list)
+                                   ss))
+                 (list ss))))
 
 (deftest pancake-tests
   (is (= (pancake '((1 2) 3 [4 [5 6]]))

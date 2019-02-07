@@ -35,3 +35,21 @@
 ;; seems the commonalities are storing the result, storing at least one operator and operand, and evaluating an expression.
 ;; bedmas/pemdas
 #_()
+
+;; perhaps it's like creating a tree
+;; operators with a lesser precedence end up at a lesser depth in the tree
+;; e.g. 10 / 2 - 1 * 2
+;;     -
+;;   /   *
+;; 10 2 1 2
+;; although... hmm... with no precedence, we get
+;;   / - *
+;; 10 2 1 2
+;; I guess we could make it more like
+;;       *
+;;     -  2
+;;   /  1
+;; 10 2
+;; we could say, 'match one operand, one operator, and another operand' and then repeat with the transformed sequence
+;; then we say we're providing the lazy sequence of the depth-first, in-order traversal of the tree and gradually transform that into a single value
+;; the interesting thing is that we're parsing and applying, rather than doing them as separate steps

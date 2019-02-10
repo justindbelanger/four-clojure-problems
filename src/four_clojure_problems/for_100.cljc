@@ -1,4 +1,4 @@
-(ns four-clojure-problems.solutions.100)
+(ns four-clojure-problems.for-100)
 
 (defn lcm-for-two [c d]
   (letfn [(gcd [a b]
@@ -20,14 +20,3 @@
                      (/ (* a b)
                         (gcd a b)))]
              (reduce lcm-for-two args))))
-
-(def tests [{:input [2 3]
-             :result 6}
-            {:input [5 3 7]
-             :result 105}
-            {:input [1/3 2/5]
-             :result 2}
-            {:input [3/4 1/6]
-             :result 3/2}
-            {:input [7 5/7 2 3/5]
-             :result 210}])

@@ -1,0 +1,7 @@
+* TODO [#A] see if each solution can be put into the same file as its tests
+* TODO [#B] Support Clojure testing
+** WAITING update the readme
+* TODO [#C] Rearrange all solutions into cljc files
+* TODO [#D] rename the project
+* WAITING add changelog, unlicense, etc.
+* WAITING publish to GitHub

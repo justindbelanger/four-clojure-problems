@@ -1,0 +1,8 @@
+* What's this?
+It's my solutions to the 4Clojure puzzles.
+* Testing
+use
+#+BEGIN_SRC sh
+make test
+#+END_SRC
+to run the ClojureScript tests. Clojure testing coming soon!

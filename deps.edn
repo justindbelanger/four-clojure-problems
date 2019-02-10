@@ -1,0 +1,9 @@
+{:paths ["src"]
+ :deps {org.clojure/clojure {:mvn/version "1.9.0"}
+        org.clojure/clojurescript {:mvn/version "1.10.439"}}
+ :aliases {:nREPL {:extra-deps
+                   {nrepl/nrepl {:mvn/version "0.5.3"}
+                    cider/piggieback {:mvn/version "0.3.8"}}}
+           :test {:extra-paths ["test" "cljs-test-runner-out/gen"]
+                  :extra-deps {olical/cljs-test-runner {:mvn/version "3.4.0"}}
+                  :main-opts ["-m" "cljs-test-runner.main"]}}}

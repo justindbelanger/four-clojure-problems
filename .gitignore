@@ -1,2 +1,4 @@
 .nrepl-history
 .nrepl-port
+cljs-test-runner-out/
+.cpcache/

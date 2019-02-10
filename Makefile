@@ -1,4 +1,4 @@
 .PHONY: test
 
 test:
-	clj -Atest
+	clj -Atest-clj && clj -Atest-cljs

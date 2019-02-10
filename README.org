@@ -5,4 +5,4 @@ use
 #+BEGIN_SRC sh
 make test
 #+END_SRC
-to run the ClojureScript tests. Clojure testing coming soon!
+to run the Clojure and ClojureScript tests.

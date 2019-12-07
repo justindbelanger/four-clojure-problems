@@ -1,38 +1,25 @@
 (ns four-clojure-problems.for-103)
 
-#_(defn indices
-  [k length]
-  (let []))
+(def k-combinations
+  (fn k-combinations [k S]
+    (cond
+      (<= k 0)        #{#{}}
+      (< (count S) k) #{}
+      :otherwise      (let [head      (first S)
+                            remaining (rest S)]
+                        (set (concat (k-combinations
+                                      k remaining)
+                                     (map #(conj % head)
+                                          (k-combinations
+                                           (dec k) remaining))))))))
 
-#_(defn k-combinations
-  [k s]
-  )
-
-(def (fn  f [k S]
-  (cond
-    (<= k 0)        #{#{}}
-    (< (count S) k) #{}
-    :otherwise      (let [head      (first S)
-                          remaining (rest S)]
-                      (set (concat (f k remaining)
-                                   (map #(conj % head)
-                                        (f (dec k) remaining))))))))
-(defn f [k S]
-  (cond
-    (<= k 0)        #{#{}}
-    (< (count S) k) #{}
-    :otherwise      (let [head      (first S)
-                          remaining (rest S)]
-                      (set (concat (f k remaining)
-                                   (map #(conj % head)
-                                        (f (dec k) remaining)))))))
 
 (comment
-  (f 3 #{0 1 2 3 4})
+  (k-combinations 3 #{0 1 2 3 4})
 
-  (f 2 #{0 1 2})
+  (k-combinations 2 #{0 1 2})
 
-  (f 1 #{2})
+  (k-combinations 1 #{2})
   )
 
 (comment

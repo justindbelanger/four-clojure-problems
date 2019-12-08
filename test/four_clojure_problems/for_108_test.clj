@@ -1,7 +1,6 @@
 (ns four-clojure-problems.for-108-test
   (:require [four-clojure-problems.for-108 :as for-108]
-            #?(:clj [clojure.test :refer [are deftest is testing]]
-               :cljs [cljs.test :refer-macros [are testing deftest is]])))
+            [clojure.test :refer [are deftest is testing]]))
 
 (deftest lazy-search-test
   (is (= (for-108/lazy-search [3 4 5])

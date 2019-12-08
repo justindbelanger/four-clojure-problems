@@ -1,12 +1,12 @@
 * ABORTED see if each solution can be put into the same file as its tests
-* RESOLVED Support Clojure testing
-  CLOSED: [2019-02-10 Sun 11:45]
-** RESOLVED update the readme
+* DONE Support Clojure testing
+** DONE update the readme
    CLOSED: [2019-02-10 Sun 11:45]
 * TODO [#C] Rearrange all solutions into cljc files
 * TODO [#B] rearrange solutions into root namespace, using "for-###" as the naming pattern
-* TODO [#A] rename the project
-* WAITING add changelog, unlicense, etc.
-** RESOLVED unlicense
+* DONE [#A] rename the project
+  CLOSED: [2019-12-08 Sun 11:26]
+* DONE add unlicense
    CLOSED: [2019-02-10 Sun 11:46]
-* WAITING publish to GitHub
+* DONE publish to GitHub
+  CLOSED: [2019-12-08 Sun 11:26]

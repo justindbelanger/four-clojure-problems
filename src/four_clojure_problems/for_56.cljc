@@ -2,18 +2,18 @@
 
 (def find-distinct-items
   (fn [s]
-    (let [transducer (fn [rf]
-                       (let [*tracked (atom #{})]
-                         (fn
-                           ;; init
-                           ([] (rf))
-                           ;; finalize
-                           ([result] (rf result))
-                           ;; accumulate
-                           ([result input]
-                            (if (contains? @*tracked input)
-                              result ;; drop anything we've seen before
-                              (do
-                                (swap! *tracked conj input)
-                                (rf result input)))))))]
-      (transduce transducer conj [] s))))
+    (let [f (fn f ([s]
+                   (f s #{}))
+              ([s tracked]
+               (let [head (first s)
+                     tail (rest s)
+                     new? (not (contains? tracked head))
+                     end? (not (seq tail))]
+                 (if end?
+                   (if new?
+                     (list head)
+                     (list))
+                   (if new?
+                     (lazy-seq (cons head (f tail (conj tracked head))))
+                     (lazy-seq (f tail tracked)))))))]
+      (f s))))

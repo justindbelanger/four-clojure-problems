@@ -1,4 +1,4 @@
-(ns four-clojure-problems.solutions.143)
+(ns four-clojure-problems.for-143)
 
 (def any-in-coll? (complement not-any?))
 
